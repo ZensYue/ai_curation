@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120">
+  <defs>
+    <style>
+      .title { font: 700 30px 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #0f172a; }
+      .label { font: 600 16px 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #0f172a; }
+      .small { font: 500 13px 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #334155; }
+      .box { rx: 18; ry: 18; stroke-width: 2; }
+      .arrow { stroke: #64748b; stroke-width: 3; fill: none; marker-end: url(#m); }
+    </style>
+    <marker id="m" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#f8fafc"/>
+  <text x="70" y="60" class="title">技术流程图：KP电子产品自动选品项目</text>
+
+  <rect x="70" y="110" width="220" height="86" class="box" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="180" y="150" text-anchor="middle" class="label">触发流程</text>
+  <text x="180" y="176" text-anchor="middle" class="small">定时触发 / 手动触发</text>
+
+  <rect x="340" y="110" width="280" height="180" class="box" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="480" y="145" text-anchor="middle" class="label">数据采集</text>
+  <text x="365" y="180" class="small">• KP平台热卖数据</text>
+  <text x="365" y="205" class="small">• 欧洲平台热卖数据</text>
+  <text x="365" y="230" class="small">• 国内电商热卖数据</text>
+  <text x="365" y="255" class="small">• 国内新品发布数据</text>
+  <text x="365" y="280" class="small">• 比价与汇率数据</text>
+
+  <rect x="680" y="110" width="280" height="180" class="box" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="820" y="145" text-anchor="middle" class="label">数据标准化</text>
+  <text x="705" y="180" class="small">• 统一品牌 / 型号 / 类目</text>
+  <text x="705" y="205" class="small">• 去重与合并</text>
+  <text x="705" y="230" class="small">• 字段映射</text>
+  <text x="705" y="255" class="small">• 缺失值补全</text>
+
+  <rect x="1020" y="110" width="280" height="180" class="box" fill="#fef3c7" stroke="#d97706"/>
+  <text x="1160" y="145" text-anchor="middle" class="label">潜力筛选</text>
+  <text x="1045" y="180" class="small">• 热度排序</text>
+  <text x="1045" y="205" class="small">• 价格敏感度分析</text>
+  <text x="1045" y="230" class="small">• 评价增量判断</text>
+  <text x="1045" y="255" class="small">• 欧洲热卖对标</text>
+  <text x="1045" y="280" class="small">• 自动打标签</text>
+
+  <rect x="1360" y="110" width="320" height="210" class="box" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="1520" y="145" text-anchor="middle" class="label">利润核算</text>
+  <text x="1385" y="180" class="small">• 国内采购成本</text>
+  <text x="1385" y="205" class="small">• 头程运费</text>
+  <text x="1385" y="230" class="small">• 尾程费用</text>
+  <text x="1385" y="255" class="small">• 汇率换算</text>
+  <text x="1385" y="280" class="small">• 本地最低价校验</text>
+  <text x="1385" y="305" class="small">• 利润 / 利润率计算</text>
+
+  <rect x="560" y="420" width="320" height="170" class="box" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="720" y="455" text-anchor="middle" class="label">Vika 回写</text>
+  <text x="585" y="490" class="small">• 热卖表</text>
+  <text x="585" y="515" class="small">• 潜力表</text>
+  <text x="585" y="540" class="small">• 利润核算表</text>
+  <text x="585" y="565" class="small">• 汇总看板</text>
+
+  <rect x="980" y="420" width="360" height="190" class="box" fill="#fae8ff" stroke="#a21caf"/>
+  <text x="1160" y="455" text-anchor="middle" class="label">监控与告警</text>
+  <text x="1005" y="490" class="small">• 采集失败</text>
+  <text x="1005" y="515" class="small">• 字段缺失</text>
+  <text x="1005" y="540" class="small">• 价格异常</text>
+  <text x="1005" y="565" class="small">• 利润为负</text>
+  <text x="1005" y="590" class="small">• 数据延迟 / 超时</text>
+
+  <rect x="70" y="720" width="1610" height="250" class="box" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="110" y="760" class="label">流程说明</text>
+  <text x="110" y="805" class="small">1. 按“采集 → 标准化 → 筛选 → 核算 → 回写 → 监控”的顺序拆分，适合直接映射为 n8n 主流程与子流程。</text>
+  <text x="110" y="840" class="small">2. 数据标准化建议独立成层，避免各采集节点各自处理，后期规则更容易统一维护。</text>
+  <text x="110" y="875" class="small">3. 潜力筛选和利润核算分开，方便单独调阈值、公式和更新频率。</text>
+  <text x="110" y="910" class="small">4. Vika 回写建议先按多表结构落地，后续再汇总成一个主看板页面。</text>
+  <text x="110" y="945" class="small">5. 监控与告警不只处理技术报错，也要覆盖价格倒挂、利润异常、字段缺失等业务异常。</text>
+
+  <path d="M290 153 L340 153" class="arrow"/>
+  <path d="M620 200 L680 200" class="arrow"/>
+  <path d="M960 200 L1020 200" class="arrow"/>
+  <path d="M1300 215 L1360 215" class="arrow"/>
+  <path d="M1520 320 L1520 370 L820 370 L820 420" class="arrow"/>
+  <path d="M880 505 L980 505" class="arrow"/>
+</svg>
+

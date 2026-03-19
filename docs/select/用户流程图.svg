@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1080" viewBox="0 0 1600 1080">
+  <defs>
+    <style>
+      .title { font: 700 30px 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #0f172a; }
+      .label { font: 600 17px 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #0f172a; }
+      .small { font: 500 14px 'PingFang SC', 'Microsoft YaHei', sans-serif; fill: #334155; }
+      .box { rx: 18; ry: 18; stroke-width: 2; }
+      .arrow { stroke: #64748b; stroke-width: 3; fill: none; marker-end: url(#m); }
+    </style>
+    <marker id="m" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#f8fafc"/>
+  <text x="70" y="60" class="title">用户流程图：日常选品操作流程</text>
+
+  <rect x="80" y="120" width="220" height="84" class="box" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="190" y="154" text-anchor="middle" class="label">开始一天工作</text>
+  <text x="190" y="180" text-anchor="middle" class="small">进入项目看板</text>
+
+  <rect x="360" y="120" width="240" height="84" class="box" fill="#e0f2fe" stroke="#0284c7"/>
+  <text x="480" y="154" text-anchor="middle" class="label">查看今日同步结果</text>
+  <text x="480" y="180" text-anchor="middle" class="small">确认系统是否更新完成</text>
+
+  <rect x="660" y="120" width="240" height="84" class="box" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="780" y="154" text-anchor="middle" class="label">查看候选商品</text>
+  <text x="780" y="180" text-anchor="middle" class="small">热卖 / 潜力 / 利润可做</text>
+
+  <rect x="960" y="120" width="240" height="84" class="box" fill="#fef3c7" stroke="#d97706"/>
+  <text x="1080" y="154" text-anchor="middle" class="label">人工确认重点商品</text>
+  <text x="1080" y="180" text-anchor="middle" class="small">先看最值得跟进的品</text>
+
+  <rect x="1260" y="120" width="240" height="84" class="box" fill="#fee2e2" stroke="#dc2626"/>
+  <text x="1380" y="154" text-anchor="middle" class="label">补充必要资料</text>
+  <text x="1380" y="180" text-anchor="middle" class="small">型号、分类、成本、比价</text>
+
+  <rect x="220" y="340" width="290" height="180" class="box" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="365" y="375" text-anchor="middle" class="label">需要重点确认的内容</text>
+  <text x="245" y="415" class="small">• 品牌 / 型号是否正确</text>
+  <text x="245" y="445" class="small">• 分类是否需要手工修正</text>
+  <text x="245" y="475" class="small">• 国内采购价是否完整</text>
+  <text x="245" y="505" class="small">• 本地最低价是否完整</text>
+
+  <rect x="650" y="340" width="300" height="180" class="box" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="800" y="375" text-anchor="middle" class="label">查看利润和风险提示</text>
+  <text x="675" y="415" class="small">• 是否有利润空间</text>
+  <text x="675" y="445" class="small">• 是否存在价格倒挂</text>
+  <text x="675" y="475" class="small">• 是否缺少关键资料</text>
+  <text x="675" y="505" class="small">• 是否需要继续观察</text>
+
+  <rect x="1090" y="340" width="300" height="180" class="box" fill="#fae8ff" stroke="#a21caf"/>
+  <text x="1240" y="375" text-anchor="middle" class="label">做跟进决策</text>
+  <text x="1115" y="415" class="small">• 保留</text>
+  <text x="1115" y="445" class="small">• 观察</text>
+  <text x="1115" y="475" class="small">• 排除</text>
+  <text x="1115" y="505" class="small">• 更新跟进状态</text>
+
+  <rect x="430" y="620" width="300" height="90" class="box" fill="#ecfccb" stroke="#65a30d"/>
+  <text x="580" y="657" text-anchor="middle" class="label">查看异常和缺失项</text>
+  <text x="580" y="684" text-anchor="middle" class="small">便于人工继续补录或修正</text>
+
+  <rect x="860" y="620" width="300" height="90" class="box" fill="#cffafe" stroke="#0891b2"/>
+  <text x="1010" y="657" text-anchor="middle" class="label">等待下一轮同步</text>
+  <text x="1010" y="684" text-anchor="middle" class="small">形成持续跟进节奏</text>
+
+  <rect x="80" y="820" width="1440" height="180" class="box" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="120" y="860" class="label">使用说明</text>
+  <text x="120" y="900" class="small">1. 这张图只讲业务操作流程，不涉及接口、公式、字段映射等技术细节。</text>
+  <text x="120" y="930" class="small">2. 主线是“看结果 → 确认商品 → 补资料 → 看利润 → 做决策”。</text>
+  <text x="120" y="960" class="small">3. 建议首期把状态控制在“保留 / 观察 / 排除”三档，业务更容易执行。</text>
+
+  <path d="M300 162 L360 162" class="arrow"/>
+  <path d="M600 162 L660 162" class="arrow"/>
+  <path d="M900 162 L960 162" class="arrow"/>
+  <path d="M1200 162 L1260 162" class="arrow"/>
+  <path d="M1380 204 L1380 280 L365 280 L365 340" class="arrow"/>
+  <path d="M510 430 L650 430" class="arrow"/>
+  <path d="M950 430 L1090 430" class="arrow"/>
+  <path d="M1240 520 L1240 575 L580 575 L580 620" class="arrow"/>
+  <path d="M730 665 L860 665" class="arrow"/>
+</svg>

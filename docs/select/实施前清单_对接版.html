@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>KP电子产品自动选品项目实施前清单</title>
+  <style>
+    body {
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: #1f2937;
+      margin: 40px auto;
+      max-width: 920px;
+      line-height: 1.65;
+      padding: 0 24px 48px;
+      background: #ffffff;
+    }
+    h1, h2, h3 {
+      color: #0f172a;
+    }
+    h1 {
+      font-size: 28px;
+      border-bottom: 3px solid #dbeafe;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      margin-top: 28px;
+      background: #eff6ff;
+      padding: 10px 14px;
+      border-left: 6px solid #2563eb;
+      font-size: 20px;
+    }
+    h3 {
+      margin-top: 20px;
+      font-size: 17px;
+    }
+    p.note {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 14px 16px;
+      border-radius: 8px;
+    }
+    ul, ol {
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+    li {
+      margin: 6px 0;
+    }
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      margin-right: 8px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 20px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #f1f5f9;
+    }
+    .section {
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>KP电子产品自动选品项目实施前清单</h1>
+
+  <p class="note">
+    <span class="tag">对接版</span>
+    这份清单用于项目启动前的资料准备与问题确认。先把资料补齐，再开始搭建流程，可以明显减少后续返工。
+  </p>
+
+  <h2>一、需要提供的资料</h2>
+
+  <h3>1. 平台与账号资料</h3>
+  <ul>
+    <li>KP 平台名称、网址、登录方式、是否有 API</li>
+    <li>Vika 的 API Token、空间信息、目标表信息、是否已建表</li>
+    <li>国内平台可用方式：API、网页抓取、榜单页或搜索页</li>
+    <li>欧洲平台首批名单及访问入口</li>
+    <li>汇率接口来源</li>
+    <li>ePonuda 或其他塞尔维亚比价网站的入口与可用方式</li>
+  </ul>
+
+  <h3>2. 数据源清单</h3>
+  <ul>
+    <li>KP 热卖榜入口 URL</li>
+    <li>欧洲热卖平台 URL</li>
+    <li>国内热卖榜 URL</li>
+    <li>新品监控来源</li>
+    <li>每个平台的目标类目范围</li>
+  </ul>
+  <table>
+    <tr>
+      <th>建议先明确的新品来源</th>
+      <th>说明</th>
+    </tr>
+    <tr>
+      <td>品牌官网</td>
+      <td>用于捕捉新品发布、参数和官方定价</td>
+    </tr>
+    <tr>
+      <td>科技媒体</td>
+      <td>用于补充新品发布时间、市场关注度和链接</td>
+    </tr>
+    <tr>
+      <td>RSS 源</td>
+      <td>用于自动监控更新，降低人工检查成本</td>
+    </tr>
+  </table>
+
+  <h3>3. Vika 表结构资料</h3>
+  <ul>
+    <li>每张表最终名称</li>
+    <li>每张表字段名与字段类型</li>
+    <li>唯一键规则</li>
+    <li>更新策略：覆盖更新或追加历史</li>
+    <li>是否需要主看板汇总表</li>
+  </ul>
+
+  <h3>4. 商品标准化资料</h3>
+  <ul>
+    <li>品类字典</li>
+    <li>品牌别名映射</li>
+    <li>型号命名规则</li>
+    <li>去重规则</li>
+  </ul>
+  <table>
+    <tr>
+      <th>建议首期标准品类</th>
+      <th>备注</th>
+    </tr>
+    <tr><td>手机</td><td>含智能手机及相关主机设备</td></tr>
+    <tr><td>大相机</td><td>摄影相机，如索尼、佳能等</td></tr>
+    <tr><td>小相机 / 运动相机</td><td>如大疆、GoPro 等</td></tr>
+    <tr><td>电脑设备</td><td>笔记本、平板、主机等</td></tr>
+    <tr><td>配件</td><td>耳机、充电器、镜头配件等</td></tr>
+    <tr><td>其他电子产品</td><td>无法归入以上类别的商品</td></tr>
+  </table>
+
+  <h3>5. 业务判定规则</h3>
+  <ul>
+    <li>热卖前 50 的具体榜单定义</li>
+    <li>浏览量、收藏数、销量、评价增量的可获取性</li>
+    <li>“热门关注商品”判定阈值</li>
+    <li>“可降价切入商品”判定阈值</li>
+    <li>“增量商品”判定阈值</li>
+    <li>“蓝海产品”判定阈值</li>
+    <li>最低利润额 / 利润率门槛</li>
+  </ul>
+
+  <h3>6. 成本与物流资料</h3>
+  <ul>
+    <li>国内采购成本取值规则</li>
+    <li>头程参数是否固定</li>
+    <li>尾程费用规则是否按文档默认表</li>
+    <li>是否有特殊品类附加费</li>
+    <li>汇率刷新频率</li>
+  </ul>
+  <table>
+    <tr>
+      <th>文档默认参数</th>
+      <th>当前值</th>
+    </tr>
+    <tr><td>空运单价</td><td>69 RMB/KG</td></tr>
+    <tr><td>体积重基数</td><td>6000</td></tr>
+    <tr><td>最低计费重</td><td>12KG</td></tr>
+  </table>
+
+  <h3>7. 环境与风控资料</h3>
+  <ul>
+    <li>是否已有当地代理 IP</li>
+    <li>是否允许浏览器自动化</li>
+    <li>是否需要验证码处理</li>
+    <li>n8n 运行环境</li>
+    <li>告警渠道</li>
+  </ul>
+
+  <h2>二、需要回答的问题</h2>
+
+  <table>
+    <tr>
+      <th>问题分类</th>
+      <th>需要确认的问题</th>
+    </tr>
+    <tr>
+      <td>数据源与抓取方式</td>
+      <td>
+        KP 平台是否只能网页抓取？<br>
+        KP 热卖榜按什么维度获取？<br>
+        欧洲首批做哪些国家、哪些站点？<br>
+        国内平台价格抓取用什么口径？<br>
+        新品监控首期做哪些固定来源？
+      </td>
+    </tr>
+    <tr>
+      <td>商品标准化与映射</td>
+      <td>
+        型号标准化靠规则表、AI，还是两者结合？<br>
+        品牌一致 + 型号一致是否足够作为去重规则？<br>
+        颜色、容量、套餐是否算同款？<br>
+        平台标题混乱时是否允许人工维护映射表？
+      </td>
+    </tr>
+    <tr>
+      <td>业务规则与判定标准</td>
+      <td>
+        浏览量、收藏数、近 7 天新增评价是否都能拿到？<br>
+        拿不到时是否允许用替代指标？<br>
+        蓝海产品中的 KP 供应稀缺 / 热度不高如何定义？<br>
+        最低利润额和利润率门槛是多少？<br>
+        哪些商品类型需要直接剔除？
+      </td>
+    </tr>
+    <tr>
+      <td>成本、汇率与本地比价</td>
+      <td>
+        国内采购成本按标价、到手价还是最低采购价？<br>
+        ePonuda 搜不到商品时是否继续利润核算？<br>
+        尾程费用是否按国家拆分？<br>
+        汇率取实时值、每日值还是人工维护值？
+      </td>
+    </tr>
+    <tr>
+      <td>数据回写与业务使用</td>
+      <td>
+        Vika 是多表管理，还是主表 + 明细表？<br>
+        是否需要人工确认状态字段？<br>
+        候选品跟进状态是否先只保留三档？<br>
+        是否需要保留抓取历史和利润历史？
+      </td>
+    </tr>
+  </table>
+
+  <h2>三、建议先固定的表</h2>
+
+  <ol>
+    <li>KP平台产品热卖信息</li>
+    <li>周边国家热卖产品信息</li>
+    <li>国内产品热卖信息</li>
+    <li>国内新发布产品信息</li>
+    <li>有潜力产品信息表</li>
+    <li>选品利润核算表</li>
+    <li>商品映射规则表</li>
+    <li>全局参数表</li>
+  </ol>
+
+  <h2>四、建议实施顺序</h2>
+
+  <ol>
+    <li>先确认平台与账号资料</li>
+    <li>先定 Vika 表结构</li>
+    <li>再定商品标准化与去重规则</li>
+    <li>再定潜力筛选阈值</li>
+    <li>再定利润核算参数</li>
+    <li>最后开始拆 n8n 流程并实施</li>
+  </ol>
+</body>
+</html>
+
