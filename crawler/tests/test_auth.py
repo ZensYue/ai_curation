@@ -1,16 +1,16 @@
 from __future__ import annotations
 
 import json
-import tempfile
 from pathlib import Path
 from unittest import TestCase
 
 from kp_crawler.auth import AuthProfileStore
+from support import managed_tempdir
 
 
 class AuthTests(TestCase):
     def test_load_auth_profile(self) -> None:
-        with tempfile.TemporaryDirectory() as tmp:
+        with managed_tempdir("test_load_auth_profile") as tmp:
             auth_file = Path(tmp) / "auth_profiles.json"
             auth_file.write_text(
                 json.dumps(

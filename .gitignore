@@ -16,3 +16,6 @@ venv/
 # Local crawler runtime artifacts
 crawler/data/
 crawler/config/auth_profiles.json
+.kp_crawler.log
+.kp_crawler.pid
+crawler/src/*.egg-info/

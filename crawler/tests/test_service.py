@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import tempfile
 from pathlib import Path
 from unittest import TestCase
 
@@ -9,6 +8,7 @@ from kp_crawler.fetcher import FetchResponse
 from kp_crawler.models import CrawlRequest
 from kp_crawler.service import KpCrawlService
 from kp_crawler.storage import ArtifactStore
+from support import managed_tempdir
 
 
 FIXTURES = Path(__file__).parent / "fixtures"
@@ -43,7 +43,7 @@ class EmptyFetcher:
 
 class ServiceTests(TestCase):
     def test_crawl_success(self) -> None:
-        with tempfile.TemporaryDirectory() as tmp:
+        with managed_tempdir("test_crawl_success") as tmp:
             service = KpCrawlService(
                 fetcher=FakeFetcher(),
                 artifact_store=ArtifactStore(data_root=Path(tmp)),
@@ -63,7 +63,7 @@ class ServiceTests(TestCase):
             self.assertTrue(Path(result.artifacts.result_file or "").exists())
 
     def test_crawl_marks_browser_fallback_when_no_items_parsed(self) -> None:
-        with tempfile.TemporaryDirectory() as tmp:
+        with managed_tempdir("test_crawl_marks_browser_fallback") as tmp:
             service = KpCrawlService(
                 fetcher=EmptyFetcher(),
                 artifact_store=ArtifactStore(data_root=Path(tmp)),

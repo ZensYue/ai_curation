@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-import tempfile
 from pathlib import Path
 from unittest import TestCase
 
@@ -10,12 +9,13 @@ from kp_crawler.http_api import KpCrawlerApplication
 from kp_crawler.service import KpCrawlService
 from kp_crawler.storage import ArtifactStore
 
+from support import managed_tempdir
 from test_service import FakeFetcher
 
 
 class HttpApiTests(TestCase):
     def test_application_handle_crawl_returns_items(self) -> None:
-        with tempfile.TemporaryDirectory() as tmp:
+        with managed_tempdir("test_application_handle_crawl_returns_items") as tmp:
             service = KpCrawlService(
                 fetcher=FakeFetcher(),
                 artifact_store=ArtifactStore(data_root=Path(tmp)),
