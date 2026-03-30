@@ -19,3 +19,5 @@ crawler/config/auth_profiles.json
 .kp_crawler.log
 .kp_crawler.pid
 crawler/src/*.egg-info/
+.env
+.ipynb_checkpoints/
