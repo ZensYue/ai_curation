@@ -4,7 +4,14 @@
       "Bash(mkdir -p scripts notebooks src docs)",
       "Bash(cat:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(npm search:*)",
+      "Bash(npx:*)",
+      "Bash(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh)",
+      "Bash(bash)",
+      "Bash(/plugin marketplace:*)",
+      "Bash(/plugin install:*)",
+      "Bash(openspec:*)"
     ]
   }
 }

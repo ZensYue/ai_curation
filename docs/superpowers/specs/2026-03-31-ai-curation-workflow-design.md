@@ -1,42 +1,42 @@
-# AI Curation (AI 选品) Workflow Design
+# AI 选品 (AI Curation) 工作流设计
 
-## 1. Overview
-This document specifies the foundational workflow architecture for the "AI 选品" (AI Curation) project. The goal is to establish a robust, spec-driven development environment using **OpenSpec** and **Superpowers**. The project will utilize a multi-agent ("Agent Team") approach.
+## 1. 概述
+本文档规定了“AI 选品”项目基础工作流的架构设计。我们的目标是使用 **OpenSpec** 和 **Superpowers** 建立一个稳健的、以规范驱动的开发环境。本项目将采用多智能体（"Agent Team"）协作的方式来实现。
 
-## 2. Directory Structure
-The workspace will adopt a "Hybrid Domain-Driven" approach (Option A), separating specifications from implementations.
+## 2. 目录结构
+工作区将采用“混合领域驱动”（方案 A），将规范说明与代码实现分离开来。
 
 ```text
 .openspec/
-├── team.md                 # Agent Team collaboration definition
-├── agents/                 # Individual Agent specifications
-│   ├── base_agent.md       # Shared foundational rules, persona, and error handling
-│   ├── scraper_agent.md    # [Template] Scraper Agent
-│   └── analysis_agent.md   # [Template] Analysis Agent
+├── team.md                 # Agent Team 协同工作流定义（谁调用谁，如何传递上下文）
+├── agents/                 # 每个独立 Agent 的规范
+│   ├── base_agent.md       # 所有 Agent 的基础规范（共用人设、错误处理规范等）
+│   ├── scraper_agent.md    # [模板] 负责信息采集的 Agent 规范
+│   └── analysis_agent.md   # [模板] 负责分析的 Agent 规范
 └── prompts/
-    └── meta_prompts/       # Meta-prompts to generate code based on specs
+    └── meta_prompts/       # 用于让大模型根据规范生成代码的 Prompt 模板
 
 scripts/
-└── agents/                 # Python scripts implementing the agents for initial validation
+└── agents/                 # 存放用于初期验证阶段、实现了各个 Agent 逻辑的 Python 脚本
 ```
 
-## 3. Core Specification Templates
-The core workflow configuration files in `.openspec/` will define the team dynamics and agent capabilities.
+## 3. 核心规范模板
+位于 `.openspec/` 目录下的核心工作流配置文件，将定义团队的协作方式和各个智能体的能力。
 
-### 3.1. `team.md` (Agent Collaboration Center)
-- **Team Goal**: Define the overarching pipeline for AI curation (e.g., Data Gathering -> Analysis -> Decision/Recommendation).
-- **Roles & Responsibilities**: Outline which agent is responsible for which phase of the pipeline.
-- **Communication Protocol**: Define how agents pass context (e.g., JSON schema, event streams, shared memory).
-- **Global Error Handling**: Define the team's fallback strategy if an agent fails (e.g., if `scraper_agent` is blocked, should the team abort or use cached data?).
+### 3.1. `team.md` (Agent 协作中心)
+- **Team Goal (团队目标)**: 定义 AI 选品的核心流水线（例如：数据抓取 -> 分析 -> 决策推荐）。
+- **Roles & Responsibilities (角色与职责)**: 明确哪个 Agent 负责流水线中的哪个阶段。
+- **Communication Protocol (通信协议)**: 定义 Agent 之间如何传递上下文（例如：JSON 数据格式、事件流、共享内存）。
+- **Global Error Handling (全局错误处理)**: 定义某个 Agent 失败时的回退策略（例如，如果爬虫 agent 被屏蔽了，团队是应该中止流程，还是使用缓存数据？）。
 
-### 3.2. `agents/*.md` (Individual Agent Specification)
-Each agent specification will act as the blueprint for its code implementation.
-- **Role/Persona**: The System Prompt and core objective of the agent.
-- **Input/Output**: The exact JSON schema or data structure the agent accepts and emits.
-- **Tools**: Authorized actions the agent can perform (e.g., web requests, database queries, LLM calls).
-- **Validation Criteria**: Unit/Integration test cases to verify the agent behaves according to its spec.
+### 3.2. `agents/*.md` (单个 Agent 规范)
+每个 Agent 的规范文档将作为它代码实现的蓝图。
+- **Role/Persona (角色/人设)**: Agent 的系统提示词 (System Prompt) 及其核心目标。
+- **Input/Output (输入/输出)**: Agent 接收和返回的精确 JSON Schema 或数据结构。
+- **Tools (工具)**: Agent 可以调用的授权操作（例如：网络请求、数据库查询、LLM 接口调用）。
+- **Validation Criteria (验证标准)**: 单元测试/集成测试用例，用于验证 Agent 的行为是否符合规范。
 
-## 4. Implementation Strategy
-1. **Initialize OpenSpec structure**: Create the directories and blank/template `.openspec` files.
-2. **User Review**: The user will review the blank templates and fill in specific business logic for the AI curation use case.
-3. **Validation Implementation**: Use the `scripts/agents/` directory to write Python validation code based on the refined `.openspec` specifications.
+## 4. 实施策略
+1. **初始化 OpenSpec 结构**: 创建目录，并编写空白或带有基础模板的 `.openspec` 文件。
+2. **用户审查**: 由用户审查空白模板，并在其中填入针对 AI 选品业务的具体逻辑。
+3. **验证实现**: 基于完善后的 `.openspec` 规范，在 `scripts/agents/` 目录下编写 Python 验证代码。
