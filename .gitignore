@@ -21,3 +21,7 @@ crawler/config/auth_profiles.json
 crawler/src/*.egg-info/
 .env
 .ipynb_checkpoints/
+
+# Local tooling artifacts
+node_modules/
+.claude/worktrees/
