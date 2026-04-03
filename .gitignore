@@ -25,3 +25,4 @@ crawler/src/*.egg-info/
 # Local tooling artifacts
 node_modules/
 .claude/worktrees/
+.claude/settings.local.json
